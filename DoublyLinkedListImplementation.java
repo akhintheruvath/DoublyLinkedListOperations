@@ -115,16 +115,15 @@ public class DoublyLinkedListImplementation {
     }
 
     public void reverse() {
-        Node temp, nextNode, currentNode = head;
+        Node nextNode, currentNode = head;
         while (currentNode != null) {
             nextNode = currentNode.next;
-            temp = currentNode.prev;
-            currentNode.prev = currentNode.next;
-            currentNode.next = temp;
+            currentNode.next = currentNode.prev;
+            currentNode.prev = nextNode;
             currentNode = nextNode;
         }
-        temp = head;
+        currentNode = head;
         head = tail;
-        tail = temp;
+        tail = currentNode;
     }
 }
